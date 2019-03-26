@@ -48,33 +48,16 @@ let snake = [
      function main() {
       // If the game ended return early to stop game
       if (didGameEnd()) return;
-      gameMenu();
-      // Call game again
-      main();
-      // setTimeout(function onTick() {
-      //   changingDirection = false;
-      // }, GAME_SPEED)
+      setTimeout(function onTick() {
+        changingDirection = false;
+        clearCanvas();
+        drawFood();
+        advanceSnake();
+        drawSnake();
+        // Call game again
+        main();
+      }, GAME_SPEED)
     }
-    /* create a game menu */
-    function gameMenu() {
-      // Select the colour to fill the drawing
-      ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
-      // Select the border colour for the canvas
-      ctx.strokestyle = CANVAS_BORDER_COLOUR;
-      // Load game on button click
-      document.getElementById("startGame").addEventListener("click", function() {
-        setTimeout(function onTick() {
-          changingDirection = false;
-          clearCanvas(); 
-          drawFood();
-          advanceSnake();
-          drawSnake();
-          // Call game again
-          // main();
-        }, GAME_SPEED)
-      });
-    }
-
     /**
      * add canvas attributes to canvas
      */

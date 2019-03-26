@@ -13,9 +13,3 @@
   font-size: 140px;
   font-family: 'Margarine', cursive;
 }
-input#startGame {
-  z-index: 2;
-  position: absolute; 
-  top: 50%; 
-  left: 50%;
-}
