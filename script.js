@@ -19,6 +19,21 @@ let snake = [
 {x: 110, y: 150}
 ]
 
+// var backGrnd = new Audio ("audio/background.mp3");
+// backGrnd.play();
+//load audio files
+let dead = new Audio();
+let eat = new Audio();
+dead.src = "audio/gameover.wav";
+eat.src = "audio/eat.wav";
+
+  //   not working
+  //   function bgSoundPlay(){
+  //   var bgSound = document.getElementById('bgSound');
+  //   bgSound.loop = true;
+  //   bgSound.play();
+  // }
+
     // to implement score
     let score = 0;
     // when snake changes direction
@@ -36,7 +51,7 @@ let snake = [
     // Return a two dimensional drawing context
     const ctx = gameCanvas.getContext("2d");
     // Start game
-    main();
+    // main();
     // Create the first food location
     createFood();
     // Call changeDirection whenever a key is pressed
@@ -48,15 +63,23 @@ let snake = [
      function main() {
       // If the game ended return early to stop game
       if (didGameEnd()) return;
-      setTimeout(function onTick() {
-        changingDirection = false;
-        clearCanvas();
-        drawFood();
-        advanceSnake();
-        drawSnake();
-        // Call game again
-        main();
-      }, GAME_SPEED)
+      setTimeout(function() {
+          changingDirection = false;
+          clearCanvas(); 
+          drawFood();
+          advanceSnake();
+          drawSnake();
+          // Call game again
+          main();
+        }, GAME_SPEED);
+      }
+    function hide() {
+      var x = document.getElementById("startGame");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
     }
     /**
      * add canvas attributes to canvas
@@ -77,7 +100,7 @@ let snake = [
      
     function drawFood() {
       var img = new Image();
-      img.src = "./images/apple.png";
+      img.src = "./images/micky.png";
       ctx.drawImage(img, foodX, foodY, 10, 10);
       
     }
@@ -93,6 +116,7 @@ let snake = [
       snake.unshift(head);
       const didEatFood = snake[0].x === foodX && snake[0].y === foodY;
       if (didEatFood) {
+        eat.play()
         // Increase score
         score += 1;
         // Display score on screen
@@ -110,12 +134,14 @@ let snake = [
      function didGameEnd() {
       for (let i = 4; i < snake.length; i++) {
         if (snake[i].x === snake[0].x && snake[i].y === snake[0].y){
+           dead.play();
           alert("GAME OVER! YOU ARE A LOSER!!!");
           location.reload();
         }
       }
       if(snake[0].x < 0 || snake[0].x > gameCanvas.width - 10 || snake[0].y < 0 || snake[0].y > gameCanvas.height - 10){
-        alert("you hit a wall, haha")
+         dead.play();
+        alert("GAME OVER")
         location.reload();
       }
 
@@ -176,10 +202,10 @@ let snake = [
      * @param { object } event - The keydown event
      */
      function changeDirection(event) {
-      const LEFT_KEY = 37;
-      const RIGHT_KEY = 39;
-      const UP_KEY = 38;
-      const DOWN_KEY = 40;
+      const LEFT_KEY = 65;
+      const RIGHT_KEY = 68;
+      const UP_KEY = 87;
+      const DOWN_KEY = 83;
       /**
        * Prevent the snake from reversing
        * Example scenario:
