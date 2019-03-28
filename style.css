@@ -14,7 +14,7 @@
   font-family: 'Margarine', cursive;
   position: absolute;
   top: -5%;
-  left: 50%;
+  left: 48.5%;
 
 }
 button {
@@ -36,8 +36,3 @@ button {
   display: none;
 }
 
-audio {
-visibility: hidden;
-position: absolute;
-bottom: 0;
-}

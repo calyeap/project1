@@ -5,14 +5,14 @@
  <title>Snake Game</title>
 </head>
 <body background="https://i.imgur.com/mt53TnD.png">
-  <audio controls autoplay loop>
+  <audio id="audio" autoplay loop>
     <source src="audio/background.mp3" type="audio/mpeg" >
-</audio>
-  <div id="score">0</div>
-  <canvas class="" id="gameCanvas" width="300" height="300"></canvas>
-  <menu id="controls">
-    <button id="startGame" name="Start game" onclick="hide(); main();">Start Game</button>
-  </menu>
-  <script src= "script.js"> </script>
-</body>
-</html>
+    </audio>
+    <div id="score">0</div>
+    <canvas class="" id="gameCanvas" width="300" height="300"></canvas>
+    <menu id="controls">
+    <button id="startGame" name="Start game" onclick="hide(); main(); playSound();">Start Game</button>
+    </menu>
+    <script src= "script.js"> </script>
+ </body>
+ </html>
