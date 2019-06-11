@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
-  
+
     "engines" : {
     "node" : "^6.6.0"
   },
   "scripts": {
-    "start": "node script.js"
+    "start": "./snake.html"
   },
   "repository": {
     "type": "git",
