@@ -204,7 +204,3 @@ if (keyPressed === DOWN_KEY && !goingUp) {
   dy = 10;
 }
 }
-
-const PORT = process.env.PORT || 3000;
-
-const server = app.listen(PORT, () => console.log('~~~ Tuning in to the waves of port '+PORT+' ~~~'));
