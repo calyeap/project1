@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
+  
+    "engines" : {
+    "node" : "^6.6.0"
+  },
   "scripts": {
     "start": "node script.js"
   },
@@ -17,6 +21,4 @@
   },
   "homepage": "https://github.com/calyeap/project1#readme"
 }
-  "engines" : {
-    "node" : "^6.6.0"
-  }
+
